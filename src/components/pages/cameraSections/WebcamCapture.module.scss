@@ -1,4 +1,17 @@
 .WebcamCapture {
 	.content {
+		display: flex;
+		gap: 50px;
+		div {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+		}
+		.addScreenshot {
+			margin-top: 80px;
+			button {
+				margin-top: 50px;
+			}
+		}
 	}
 }

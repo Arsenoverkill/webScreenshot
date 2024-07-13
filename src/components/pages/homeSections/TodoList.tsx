@@ -1,11 +1,16 @@
 'use client';
-import { useGetTodosQuery } from '@/redux/api/todo';
+import { useDeleteTodoMutation, useGetTodosQuery } from '@/redux/api/todo';
 import scss from './TodoList.module.scss';
 import Image from 'next/image';
 
 const TodoList = () => {
 	const { data } = useGetTodosQuery();
+	const [deleteTodoMutation] = useDeleteTodoMutation();
+	async function deletImage(id: number) {
+		deleteTodoMutation(id);
 
+		alert('Фото успешно удалено ✅');
+	}
 	return (
 		<section className={scss.TodoList}>
 			<div className="container">
@@ -21,6 +26,7 @@ const TodoList = () => {
 									src={item.img}
 									alt={item.title}
 								/>
+								<button onClick={() => deletImage(item._id!)}>Delete</button>
 							</div>
 						))}
 					</div>

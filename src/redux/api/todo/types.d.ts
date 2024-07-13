@@ -4,4 +4,7 @@ namespace TODO {
 
 	type PostResponse = Todo[];
 	type PostRequest = Todo;
+
+	type DeleteResponse = Todo[];
+	type DeleteRequest = number;
 }

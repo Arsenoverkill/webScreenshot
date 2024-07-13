@@ -15,7 +15,15 @@ const api = index.injectEndpoints({
 				body: newData
 			}),
 			invalidatesTags: ['todo']
+		}),
+		deleteTodo: build.mutation<TODO.DeleteResponse, TODO.DeleteRequest>({
+			query: (id) => ({
+				url: `/${id}`,
+				method: 'DELETE'
+			}),
+			invalidatesTags: ['todo']
 		})
 	})
 });
-export const { useGetTodosQuery, usePostTodoMutation } = api;
+export const { useGetTodosQuery, usePostTodoMutation, useDeleteTodoMutation } =
+	api;
